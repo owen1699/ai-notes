@@ -7,16 +7,19 @@
 - [维护约定](AGENTS.md)：任何 AI 工具维护本库前先读。
 - [技术方案](docs/技术方案.md)：目录职责、知识组织与演进决策。
 
-## 全部笔记（2 篇，按最近更新倒序）
+## 全部笔记（3 篇，按最近更新倒序）
 
 | 更新 | 创建 | 标题 | 类型 | 标签 | 内容规模 |
 | --- | --- | --- | --- | --- | --- |
+| 2026-11-04 | 2026-11-04 | [RAG 检索原理与工程实践](wiki/2026-11-04-RAG检索原理与工程实践.md) | 原创学习笔记 | RAG、分词、倒排索引、BM25、Embedding、语义检索、混合检索、ES、Redis | 14 章、24 个复习问答、2 张流程图 |
 | 2026-11-02 | 2026-11-02 | [Agent 与 MCP 接入原理](wiki/2026-11-02-Agent与MCP接入原理.md) | 原创学习笔记 | Agent、连接器、MCP、Host、stdio、HTTP、OAuth | 12 章、12 个复习问答、4 张流程图 |
 | 2026-11-02 | 2026-11-01 | [大模型学习笔记：从参数、注意力到完整推理流程](wiki/2026-11-01-大模型基础学习笔记.md) | 原创学习笔记 | Transformer、参数、神经元、激活函数、反向传播、张量、MoE、FP8、量化、模型包、FFN、推理、BERT、搜索 | 18 章、67 个复习问答、11 张流程图 |
 
 正文只维护一份；旧目录中的阅读入口不计为第二篇笔记。当前原始资料全文归档为 0 篇，论文与官方文档以正文引用链接追溯。
 
 ## 本轮新增
+
+RAG 专题新增：[完整链路](wiki/2026-11-04-RAG检索原理与工程实践.md#pipeline) · [两类分词器与训练](wiki/2026-11-04-RAG检索原理与工程实践.md#tokenization) · [BM25 公式与手算](wiki/2026-11-04-RAG检索原理与工程实践.md#bm25) · [向量化](wiki/2026-11-04-RAG检索原理与工程实践.md#embedding) · [语义检索方案](wiki/2026-11-04-RAG检索原理与工程实践.md#semantic-retrieval) · [过滤、融合与重排](wiki/2026-11-04-RAG检索原理与工程实践.md#hybrid) · [Redis Search 分工](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-search) · [故障与评测](wiki/2026-11-04-RAG检索原理与工程实践.md#evaluation)。
 
 Agent 专题新增：[角色与进程](wiki/2026-11-02-Agent与MCP接入原理.md#roles) · [Gmail 例子](wiki/2026-11-02-Agent与MCP接入原理.md#gmail) · [生财有术例子](wiki/2026-11-02-Agent与MCP接入原理.md#shengcai) · [URL 直连](wiki/2026-11-02-Agent与MCP接入原理.md#url) · [command 本地服务](wiki/2026-11-02-Agent与MCP接入原理.md#stdio) · [utoo-proxy 双角色](wiki/2026-11-02-Agent与MCP接入原理.md#proxy) · [完整调用循环](wiki/2026-11-02-Agent与MCP接入原理.md#runtime)。
 
@@ -61,5 +64,6 @@ Agent 专题新增：[角色与进程](wiki/2026-11-02-Agent与MCP接入原理.m
 本地校验：`python3 scripts/lint.py`。正文、索引、首页和日志在同一次提交中更新。
 
 公式使用 LaTeX，流程图使用 Mermaid；GitHub 可直接阅读。教学用数字不代表真实模型内部权重；参数规模、许可及产品信息均需结合具体版本与核对日期理解。
+
 
 
