@@ -62,7 +62,7 @@
 
 | 标题 | 一句话摘要 | 链接 |
 | --- | --- | --- |
-| RAG 检索原理与工程实践 | 用完整取证链路串起两类分词器、倒排索引、BM25 手算、语义与向量检索、混合重排、ES／Redis Search、排错与评测，保留 24 个复习问答。 | [完整笔记](2026-11-04-RAG检索原理与工程实践.md) |
+| RAG 检索原理与工程实践 | 串起分词、倒排、BM25、语义检索与混合重排，区分查询目标、ANN、索引和聚类训练；补充 K-means 手算与 Redis 查询能力，保留 34 个复习问答。 | [完整笔记](2026-11-04-RAG检索原理与工程实践.md) |
 
 | 问题或主题 | 阅读入口 |
 | --- | --- |
@@ -71,8 +71,13 @@
 | 倒排索引如何找到文档，BM25 怎样打分？ | [倒排索引](2026-11-04-RAG检索原理与工程实践.md#inverted-index) · [BM25 手算](2026-11-04-RAG检索原理与工程实践.md#bm25) |
 | 语义向量从哪里来，哪些模型可以用？ | [嵌入模型](2026-11-04-RAG检索原理与工程实践.md#embedding) |
 | 余弦、点积、KNN、ANN 与 HNSW 怎样区分？ | [向量检索](2026-11-04-RAG检索原理与工程实践.md#vector-search) |
+| KNN、范围查询与 ANN 是否互斥，K-means 应和谁对标？ | [四层概念](2026-11-04-RAG检索原理与工程实践.md#vector-taxonomy) · [索引方案对比](2026-11-04-RAG检索原理与工程实践.md#ann-methods) |
+| K-means 怎样更新中心，IVF 与 PQ 分别如何使用它？ | [六点聚类手算](2026-11-04-RAG检索原理与工程实践.md#kmeans) · [分桶参数与编码容量](2026-11-04-RAG检索原理与工程实践.md#ivf-pq) |
 | 稠密、稀疏、多向量与交叉编码器如何配合？ | [语义检索方案](2026-11-04-RAG检索原理与工程实践.md#semantic-retrieval) · [混合与重排](2026-11-04-RAG检索原理与工程实践.md#hybrid) |
 | ES 和 Redis Search 怎样查询，谁负责向量化？ | [Elasticsearch](2026-11-04-RAG检索原理与工程实践.md#elasticsearch) · [Redis Search](2026-11-04-RAG检索原理与工程实践.md#redis-search) |
+| $vector AS distance、PARAMS 2、DIALECT 2 分别是什么意思？ | [Redis KNN 语法拆解](2026-11-04-RAG检索原理与工程实践.md#redis-knn-syntax) |
+| 半径内为何仍漏召回，EPSILON 与 LIMIT 各控制什么？ | [向量范围查询](2026-11-04-RAG检索原理与工程实践.md#redis-vector-range) |
+| Redis 除向量外能查什么，过滤、融合、聚合有何区别？ | [查询能力表](2026-11-04-RAG检索原理与工程实践.md#redis-query-capabilities) · [三种操作](2026-11-04-RAG检索原理与工程实践.md#redis-filter-fusion) |
 | 检索结果与最终答案怎样分别评测？ | [故障与评测](2026-11-04-RAG检索原理与工程实践.md#evaluation) · [复习问答](2026-11-04-RAG检索原理与工程实践.md#review) |
 
 ## 使用与更新

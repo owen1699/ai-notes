@@ -11,13 +11,15 @@
 
 | 更新 | 创建 | 标题 | 类型 | 标签 | 内容规模 |
 | --- | --- | --- | --- | --- | --- |
+| 2026-11-05 | 2026-11-04 | [RAG 检索原理与工程实践](wiki/2026-11-04-RAG检索原理与工程实践.md) | 原创学习笔记 | RAG、分词、倒排索引、BM25、语义检索、K-means、IVF、PQ、HNSW、ES、Redis | 14 章、34 个复习问答、2 张流程图 |
 | 2026-11-04 | 2026-11-01 | [大模型学习笔记：从参数、注意力到完整推理流程](wiki/2026-11-01-大模型基础学习笔记.md) | 原创学习笔记 | Transformer、Logits、Softmax、参数、神经元、激活函数、反向传播、张量、MoE、FP8、量化、模型包、FFN、推理、BERT、搜索 | 18 章、76 个复习问答、11 张流程图 |
-| 2026-11-04 | 2026-11-04 | [RAG 检索原理与工程实践](wiki/2026-11-04-RAG检索原理与工程实践.md) | 原创学习笔记 | RAG、分词、倒排索引、BM25、Embedding、语义检索、混合检索、ES、Redis | 14 章、24 个复习问答、2 张流程图 |
 | 2026-11-02 | 2026-11-02 | [Agent 与 MCP 接入原理](wiki/2026-11-02-Agent与MCP接入原理.md) | 原创学习笔记 | Agent、连接器、MCP、Host、stdio、HTTP、OAuth | 12 章、12 个复习问答、4 张流程图 |
 
 正文只维护一份；旧目录中的阅读入口不计为第二篇笔记。当前原始资料全文归档为 0 篇，论文与官方文档以正文引用链接追溯。
 
 ## 本轮新增
+
+RAG 追问补充：[KNN／范围／ANN 的概念分层](wiki/2026-11-04-RAG检索原理与工程实践.md#vector-taxonomy) · [FLAT／IVF／HNSW／PQ 对比](wiki/2026-11-04-RAG检索原理与工程实践.md#ann-methods) · [K-means 手算](wiki/2026-11-04-RAG检索原理与工程实践.md#kmeans) · [IVF 参数与 PQ 压缩](wiki/2026-11-04-RAG检索原理与工程实践.md#ivf-pq) · [Redis KNN 参数语义](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-knn-syntax) · [范围召回与分页](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-vector-range) · [查询能力与融合](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-query-capabilities)。
 
 大模型基础新增：[Logits 与输出形状](wiki/2026-11-01-大模型基础学习笔记.md#sec6-7) · [0 分为什么仍约 9%](wiki/2026-11-01-大模型基础学习笔记.md#sec6-8) · [为什么取指数、用 e](wiki/2026-11-01-大模型基础学习笔记.md#sec6-9) · [分数差与概率比](wiki/2026-11-01-大模型基础学习笔记.md#sec6-10) · [交叉熵与生成](wiki/2026-11-01-大模型基础学习笔记.md#sec6-11) · [稳定计算与 Python 复现](wiki/2026-11-01-大模型基础学习笔记.md#sec6-12)。
 
@@ -27,6 +29,9 @@ Agent 专题新增：[角色与进程](wiki/2026-11-02-Agent与MCP接入原理.m
 
 | 想解决的问题 | 直接阅读 |
 | --- | --- |
+| KNN、范围查询、ANN 与 K-means 哪些可以对标？ | [概念分层](wiki/2026-11-04-RAG检索原理与工程实践.md#vector-taxonomy) · [索引方案](wiki/2026-11-04-RAG检索原理与工程实践.md#ann-methods) |
+| K-means 怎样迭代，nlist、nprobe、top-k 有何区别？ | [六点手算](wiki/2026-11-04-RAG检索原理与工程实践.md#kmeans) · [IVF 与 PQ](wiki/2026-11-04-RAG检索原理与工程实践.md#ivf-pq) |
+| Redis 的 $vector AS distance、范围查询和混合检索如何理解？ | [KNN 语法](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-knn-syntax) · [范围查询](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-vector-range) · [过滤与融合](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-filter-fusion) |
 | Logits 怎样变成概率，为什么 0 分仍有概率？ | [分数与形状](wiki/2026-11-01-大模型基础学习笔记.md#sec6-7) · [Softmax 手算](wiki/2026-11-01-大模型基础学习笔记.md#sec6-8) |
 | Softmax 为什么取指数、用 e，分差与概率比有什么关系？ | [指数及底数选择](wiki/2026-11-01-大模型基础学习笔记.md#sec6-9) · [分差与平移](wiki/2026-11-01-大模型基础学习笔记.md#sec6-10) |
 | 超参数与可学习参数有什么区别？ | [超参数](wiki/2026-11-01-大模型基础学习笔记.md#sec1-7) |
