@@ -11,13 +11,15 @@
 
 | 更新 | 创建 | 标题 | 类型 | 标签 | 内容规模 |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-05 | 2026-11-04 | [RAG 检索原理与工程实践](wiki/2026-11-04-RAG检索原理与工程实践.md) | 原创学习笔记 | RAG、分词、倒排索引、BM25、语义检索、K-means、IVF、PQ、HNSW、ES、Redis | 14 章、34 个复习问答、2 张流程图 |
+| 2026-11-05 | 2026-11-04 | [RAG 检索原理与工程实践](wiki/2026-11-04-RAG检索原理与工程实践.md) | 原创学习笔记 | RAG、分词、倒排索引、BM25、语义检索、K-means、IVF、PQ、HNSW、ES、Redis | 14 章、36 个复习问答、2 张流程图 |
 | 2026-11-04 | 2026-11-01 | [大模型学习笔记：从参数、注意力到完整推理流程](wiki/2026-11-01-大模型基础学习笔记.md) | 原创学习笔记 | Transformer、Logits、Softmax、参数、神经元、激活函数、反向传播、张量、MoE、FP8、量化、模型包、FFN、推理、BERT、搜索 | 18 章、76 个复习问答、11 张流程图 |
 | 2026-11-02 | 2026-11-02 | [Agent 与 MCP 接入原理](wiki/2026-11-02-Agent与MCP接入原理.md) | 原创学习笔记 | Agent、连接器、MCP、Host、stdio、HTTP、OAuth | 12 章、12 个复习问答、4 张流程图 |
 
 正文只维护一份；旧目录中的阅读入口不计为第二篇笔记。当前原始资料全文归档为 0 篇，论文与官方文档以正文引用链接追溯。
 
 ## 本轮新增
+
+新增类比：[K-means 的 K 个中心与 Transformer 的 H 个头](wiki/2026-11-04-RAG检索原理与工程实践.md#kmeans-attention)，区分结构超参数、可学习参数、均值更新、反向传播和头内权重归一化。
 
 RAG 追问补充：[KNN／范围／ANN 的概念分层](wiki/2026-11-04-RAG检索原理与工程实践.md#vector-taxonomy) · [FLAT／IVF／HNSW／PQ 对比](wiki/2026-11-04-RAG检索原理与工程实践.md#ann-methods) · [K-means 手算](wiki/2026-11-04-RAG检索原理与工程实践.md#kmeans) · [IVF 参数与 PQ 压缩](wiki/2026-11-04-RAG检索原理与工程实践.md#ivf-pq) · [Redis KNN 参数语义](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-knn-syntax) · [范围召回与分页](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-vector-range) · [查询能力与融合](wiki/2026-11-04-RAG检索原理与工程实践.md#redis-query-capabilities)。
 

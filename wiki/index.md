@@ -62,7 +62,7 @@
 
 | 标题 | 一句话摘要 | 链接 |
 | --- | --- | --- |
-| RAG 检索原理与工程实践 | 串起分词、倒排、BM25、语义检索与混合重排，区分查询目标、ANN、索引和聚类训练；补充 K-means 手算与 Redis 查询能力，保留 34 个复习问答。 | [完整笔记](2026-11-04-RAG检索原理与工程实践.md) |
+| RAG 检索原理与工程实践 | 串起分词、倒排、BM25、语义检索与混合重排，区分查询目标、ANN、索引和聚类训练；补充 K-means 手算、与多头注意力的类比边界及 Redis 查询能力，保留 36 个复习问答。 | [完整笔记](2026-11-04-RAG检索原理与工程实践.md) |
 
 | 问题或主题 | 阅读入口 |
 | --- | --- |
@@ -73,6 +73,7 @@
 | 余弦、点积、KNN、ANN 与 HNSW 怎样区分？ | [向量检索](2026-11-04-RAG检索原理与工程实践.md#vector-search) |
 | KNN、范围查询与 ANN 是否互斥，K-means 应和谁对标？ | [四层概念](2026-11-04-RAG检索原理与工程实践.md#vector-taxonomy) · [索引方案对比](2026-11-04-RAG检索原理与工程实践.md#ann-methods) |
 | K-means 怎样更新中心，IVF 与 PQ 分别如何使用它？ | [六点聚类手算](2026-11-04-RAG检索原理与工程实践.md#kmeans) · [分桶参数与编码容量](2026-11-04-RAG检索原理与工程实践.md#ivf-pq) |
+| K 个中心与 H 个注意力头能怎样类比，Token 是否被分到不同头？ | [参数、训练与归一化方向](2026-11-04-RAG检索原理与工程实践.md#kmeans-attention) · [Transformer 注意力基础](2026-11-01-大模型基础学习笔记.md#ch4) |
 | 稠密、稀疏、多向量与交叉编码器如何配合？ | [语义检索方案](2026-11-04-RAG检索原理与工程实践.md#semantic-retrieval) · [混合与重排](2026-11-04-RAG检索原理与工程实践.md#hybrid) |
 | ES 和 Redis Search 怎样查询，谁负责向量化？ | [Elasticsearch](2026-11-04-RAG检索原理与工程实践.md#elasticsearch) · [Redis Search](2026-11-04-RAG检索原理与工程实践.md#redis-search) |
 | $vector AS distance、PARAMS 2、DIALECT 2 分别是什么意思？ | [Redis KNN 语法拆解](2026-11-04-RAG检索原理与工程实践.md#redis-knn-syntax) |
