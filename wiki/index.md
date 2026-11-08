@@ -59,7 +59,7 @@
 
 | 标题 | 一句话摘要 | 链接 |
 | --- | --- | --- |
-| Agent 与 MCP 接入原理 | 用原有业务案例及 CLI 笔记搜索串起角色、IPC、传输、协议版本、发现、调用与多轮卸载，含 30 个复习问答。 | [完整笔记](2026-11-02-Agent与MCP接入原理.md) |
+| Agent 与 MCP 接入原理 | 串起角色、IPC、HTTP/JSON-RPC 分层与完整工具循环；末尾用 Claude Code HTTP 案例展开探测、目录保存、更新、模型加载和退出恢复，含 56 个复习问答。 | [完整笔记](2026-11-02-Agent与MCP接入原理.md) |
 
 | 问题或主题 | 阅读入口 |
 | --- | --- |
@@ -73,6 +73,16 @@
 | stdio 是否就是管道或 Unix socket？ | [标准流、IPC 与消息定界](2026-11-02-Agent与MCP接入原理.md#stdio-ipc) |
 | Streamable HTTP 和普通 HTTP 的区别是什么？ | [三种接口比较](2026-11-02-Agent与MCP接入原理.md#transport-comparison) · [HTTP 报文](2026-11-02-Agent与MCP接入原理.md#http-wire) |
 | 新版 discover 和旧版 initialize 能混在一个流程里吗？ | [2026/2025 版分界](2026-11-02-Agent与MCP接入原理.md#mcp-versioning) |
+| HTTP 的 POST、JSON-RPC 的 method、工具名怎样分层？method 能改为 type 吗？ | [完整请求拆解](2026-11-02-Agent与MCP接入原理.md#http-rpc-method) |
+| 为什么不用多个 URL？服务器还需要再路由吗？ | [端点与确定性分发](2026-11-02-Agent与MCP接入原理.md#endpoint-dispatch) |
+| MCP 方法都必须实现吗，完整接口原文在哪里？ | [能力条件与规范入口](2026-11-02-Agent与MCP接入原理.md#method-contract) |
+| 配置、发现、工具目录、客户端与模型上下文分别是什么？ | [七类状态](2026-11-02-Agent与MCP接入原理.md#catalog-state) |
+| 添加 MCP、新开对话、启动进程时到底何时探测？ | [通用触发条件](2026-11-02-Agent与MCP接入原理.md#discovery-timing) · [Claude Code 冷/暖启动](2026-11-02-Agent与MCP接入原理.md#cc-startup) |
+| 目录保存为内存缓存还是持久化？Claude Code 放在哪里？ | [两种维度](2026-11-02-Agent与MCP接入原理.md#catalog-storage) · [版本路径与字段](2026-11-02-Agent与MCP接入原理.md#cc-cache) |
+| 能力更新怎样传播，15 分钟 TTL 是轮询吗？ | [通知与刷新](2026-11-02-Agent与MCP接入原理.md#catalog-refresh) · [案例更新分支](2026-11-02-Agent与MCP接入原理.md#cc-refresh) |
+| 新会话是否加载全部工具，与 skill 是否同一时机？ | [Host 目录与模型定义](2026-11-02-Agent与MCP接入原理.md#catalog-model) · [模型决策示例](2026-11-02-Agent与MCP接入原理.md#cc-model) |
+| MCP 客户端是否跨会话共享，clear/resume 会怎样？ | [共享对象与范围](2026-11-02-Agent与MCP接入原理.md#client-sharing) · [CLI 对照表](2026-11-02-Agent与MCP接入原理.md#cc-context) |
+| 怎样用真实请求、结果和 SDK 串完 Claude Code 的 MCP 使用过程？ | [末尾完整案例](2026-11-02-Agent与MCP接入原理.md#claude-code-case) · [可运行 Host](2026-11-02-Agent与MCP接入原理.md#cc-host-code) · [证据边界](2026-11-02-Agent与MCP接入原理.md#cc-validation) |
 | CLI 怎样成为 MCP 工具？ | [进程边界、参数映射与结果封装](2026-11-02-Agent与MCP接入原理.md#cli-wrapper) |
 | Agent 如何找到服务、选择工具、拿回结果？ | [发现层次](2026-11-02-Agent与MCP接入原理.md#discovery-stages) · [完整时序](2026-11-02-Agent与MCP接入原理.md#tool-decision) · [两层 ID](2026-11-02-Agent与MCP接入原理.md#wire-example) |
 | 多轮后怎么卸载 MCP？ | [工具、历史、连接、进程、配置、授权的六种生命期](2026-11-02-Agent与MCP接入原理.md#mcp-unload) |

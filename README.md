@@ -11,20 +11,28 @@
 
 | 更新 | 创建 | 标题 | 类型 | 标签 | 内容规模 |
 | --- | --- | --- | --- | --- | --- |
+| 2026-11-08 | 2026-11-02 | [Agent 与 MCP 接入原理](wiki/2026-11-02-Agent与MCP接入原理.md) | 原创学习笔记 | Agent、MCP、CLI、stdio、IPC、Streamable HTTP、JSON-RPC、Claude Code、发现缓存、工具搜索、上下文管理、OAuth | 13 章、56 个复习问答、8 张流程图 |
 | 2026-11-08 | 2026-11-08 | [MCP 官方协议中文版指南：2026-07-28 正式版](wiki/2026-11-08-MCP官方协议中文版指南.md) | 原创学习笔记（官方译述） | MCP、JSON-RPC、MRTR、OAuth、Elicitation、Apps、Tasks、Skills、Registry | 10 章、12 个复习问答、3 张流程图 |
 | 2026-11-08 | 2026-11-01 | [大模型学习笔记：从参数、注意力到完整推理流程](wiki/2026-11-01-大模型基础学习笔记.md) | 原创学习笔记 | Transformer、分词器、Embedding、Logits、Softmax、参数、神经元、激活函数、反向传播、张量、MoE、FP8、量化、模型包、FFN、推理、BERT、搜索 | 18 章、121 个复习问答、15 张流程图 |
-| 2026-11-08 | 2026-11-02 | [Agent 与 MCP 接入原理](wiki/2026-11-02-Agent与MCP接入原理.md) | 原创学习笔记 | Agent、MCP、CLI、stdio、IPC、Streamable HTTP、工具搜索、上下文管理、OAuth | 12 章、30 个复习问答、5 张流程图 |
 | 2026-11-05 | 2026-11-04 | [RAG 检索原理与工程实践](wiki/2026-11-04-RAG检索原理与工程实践.md) | 原创学习笔记 | RAG、分词、倒排索引、BM25、语义检索、K-means、IVF、PQ、HNSW、ES、Redis | 14 章、36 个复习问答、2 张流程图 |
 
 正文只维护一份；旧目录中的阅读入口不计为第二篇笔记。当前原始资料全文归档为 0 篇，论文与官方文档以正文引用链接追溯。
 
 ## 本轮新增
 
+### HTTP、JSON-RPC 分层与 Claude Code 完整案例
+
+2026-11-08，继续融入既有《Agent 与 MCP 接入原理》，补齐 [HTTP 方法／RPC 方法／工具名](wiki/2026-11-02-Agent与MCP接入原理.md#http-rpc-method)、[多 URL 与服务端分发](wiki/2026-11-02-Agent与MCP接入原理.md#endpoint-dispatch)、[方法实现条件及规范入口](wiki/2026-11-02-Agent与MCP接入原理.md#method-contract)。区分[配置、能力目录、客户端和模型上下文](wiki/2026-11-02-Agent与MCP接入原理.md#catalog-state)，展开[探测触发](wiki/2026-11-02-Agent与MCP接入原理.md#discovery-timing)、[保存与缓存](wiki/2026-11-02-Agent与MCP接入原理.md#catalog-storage)、[能力更新](wiki/2026-11-02-Agent与MCP接入原理.md#catalog-refresh)、[工具与 skill 加载](wiki/2026-11-02-Agent与MCP接入原理.md#catalog-model)及[共享范围](wiki/2026-11-02-Agent与MCP接入原理.md#client-sharing)。
+
+末尾新增[第 13 章完整案例](wiki/2026-11-02-Agent与MCP接入原理.md#claude-code-case)：从可运行的只读服务器、CLI 配置和冷/暖启动，到发现请求、目录保存、模型决策、HTTP 调用、结果回送、变更通知与退出恢复。保留请求/结果、状态表、流程图和[可运行示范 Host](wiki/2026-11-02-Agent与MCP接入原理.md#cc-host-code)，追加 Q31—Q56。
+
+本地复核固定 Claude Code 2.1.319 / MCP Python SDK 2.3.0。真实 HTTP、CLI 健康检查和 SDK 调用与回放模型输出分别标注；交互式启动、磁盘缓存命中及通知刷新未实测，详见[验证边界](wiki/2026-11-02-Agent与MCP接入原理.md#cc-validation)。不新增重复笔记，官方协议中文版指南保持原样。
+
 ### MCP 最新正式版官方指南
 
 2026-11-08，新建按官方 Documentation → Specification → Extensions → Registry 结构展开的中文指南，覆盖 78 个官网入口、完整核心类型与 128 个关联 JSON 示例，并追读官方天气、参考服务器、Inspector 和扩展示例。明确 2026-07-28 与旧版握手／SDK 的边界，标注官方材料差异及未执行的端到端验证。
 
-直接阅读：[开发与 SDK](wiki/2026-11-08-MCP官方协议中文版指南.md#ch1) · [基础协议／MRTR／传输](wiki/2026-11-08-MCP官方协议中文版指南.md#ch3) · [授权与安全](wiki/2026-11-08-MCP官方协议中文版指南.md#ch4) · [客户端](wiki/2026-11-08-MCP官方协议中文版指南.md#ch5) · [服务端](wiki/2026-11-08-MCP官方协议中文版指南.md#ch6) · [扩展](wiki/2026-11-08-MCP官方协议中文版指南.md#ch7) · [Schema 示例](wiki/2026-11-08-MCP官方协议中文版指南.md#ch9) · [来源与验证边界](wiki/2026-11-08-MCP官方协议中文版指南.md#sources)。既有三篇笔记保持不变。
+直接阅读：[开发与 SDK](wiki/2026-11-08-MCP官方协议中文版指南.md#ch1) · [基础协议／MRTR／传输](wiki/2026-11-08-MCP官方协议中文版指南.md#ch3) · [授权与安全](wiki/2026-11-08-MCP官方协议中文版指南.md#ch4) · [客户端](wiki/2026-11-08-MCP官方协议中文版指南.md#ch5) · [服务端](wiki/2026-11-08-MCP官方协议中文版指南.md#ch6) · [扩展](wiki/2026-11-08-MCP官方协议中文版指南.md#ch7) · [Schema 示例](wiki/2026-11-08-MCP官方协议中文版指南.md#ch9) · [来源与验证边界](wiki/2026-11-08-MCP官方协议中文版指南.md#sources)。该次新增指南时，既有三篇笔记保持不变。
 
 ### 同日的大模型基础更新
 
