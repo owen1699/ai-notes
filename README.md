@@ -7,10 +7,11 @@
 - [维护约定](AGENTS.md)：任何 AI 工具维护本库前先读。
 - [技术方案](docs/技术方案.md)：目录职责、知识组织与演进决策。
 
-## 全部笔记（4 篇，按最近更新倒序）
+## 全部笔记（5 篇，按最近更新倒序）
 
 | 更新 | 创建 | 标题 | 类型 | 标签 | 内容规模 |
 | --- | --- | --- | --- | --- | --- |
+| 2026-11-09 | 2026-11-09 | [Agent 开发题库](wiki/2026-11-09-Agent开发题库.md) | 原创学习笔记（长期题库） | Agent、面试、JSON、JSON Schema、Structured Outputs、Function Calling、工程可靠性 | 3 章、1 个复习问答、1 张流程图 |
 | 2026-11-08 | 2026-11-02 | [Agent 与 MCP 接入原理](wiki/2026-11-02-Agent与MCP接入原理.md) | 原创学习笔记 | Agent、MCP、CLI、stdio、IPC、Streamable HTTP、JSON-RPC、Claude Code、发现缓存、工具搜索、上下文管理、OAuth | 13 章、56 个复习问答、8 张流程图 |
 | 2026-11-08 | 2026-11-08 | [MCP 官方协议中文版指南：2026-07-28 正式版](wiki/2026-11-08-MCP官方协议中文版指南.md) | 原创学习笔记（官方译述） | MCP、JSON-RPC、MRTR、OAuth、Elicitation、Apps、Tasks、Skills、Registry | 10 章、12 个复习问答、3 张流程图 |
 | 2026-11-08 | 2026-11-01 | [大模型学习笔记：从参数、注意力到完整推理流程](wiki/2026-11-01-大模型基础学习笔记.md) | 原创学习笔记 | Transformer、分词器、Embedding、Logits、Softmax、参数、神经元、激活函数、反向传播、张量、MoE、FP8、量化、模型包、FFN、推理、BERT、搜索 | 18 章、121 个复习问答、15 张流程图 |
@@ -19,6 +20,12 @@
 正文只维护一份；旧目录中的阅读入口不计为第二篇笔记。当前原始资料全文归档为 0 篇，论文与官方文档以正文引用链接追溯。
 
 ## 本轮新增
+
+### Agent 开发题库：稳定输出 JSON
+
+2026-11-09，新建长期维护的 [Agent 开发题库入口](wiki/2026-11-09-Agent开发题库.md#maintenance)，首题为 [AGENT-001：如何让模型稳定输出 JSON？](wiki/2026-11-09-Agent开发题库.md#q001-json)。保留“三种生成方案 + 一层应用保障”的框架，整理面试简答、Prompt/Few-shot、Structured Outputs、Function Calling、动态 name/value 数组、状态/格式/业务检查、有限重试和降级。
+
+明确 Responses 与 Chat Completions 的不同参数结构，强调严格函数参数不比直接结构化输出多一层事实保证；示例完成本地检查，未请求真实模型 API。后续同题补充原答案、新题继续编号，维护约定已写入 AGENTS.md。既有四篇正文保持不变。
 
 ### HTTP、JSON-RPC 分层与 Claude Code 完整案例
 
